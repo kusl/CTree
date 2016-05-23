@@ -20,6 +20,7 @@ public:
 	{
 		cleartree();
 	}
+	int SearchComparisonSteps = 0;
 	void addnode(int item)
 	{
 		// This procedure should add an item to the tree.  If the tree is unbalanced a rotation should occur.
@@ -52,6 +53,37 @@ public:
 	{
 		// This procedure should display a graphical version of the tree.
 
+	}
+
+	bool Search(int item)
+	{
+		AVLNode * trav = root;
+		SearchComparisonSteps = 0;
+		while (true)
+		{
+			if (trav != NULL)
+			{
+				if (item == trav->Value)
+				{
+					// found! 
+					return true;
+				}
+				else if (item > trav->Value)
+				{
+					SearchComparisonSteps++;
+					trav = trav->RightNode;
+				}
+				else if (item < trav->Value)
+				{
+					SearchComparisonSteps++;
+					trav = trav->LeftNode;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 
 private:

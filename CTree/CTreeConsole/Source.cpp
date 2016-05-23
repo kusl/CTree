@@ -9,7 +9,10 @@ int main()
 	avlTree.addnode(35);
 	avlTree.addnode(40);
 	avlTree.inorder();
+	avlTree.Search(90);
+	std::cout << avlTree.SearchComparisonSteps << std::endl;
 	avlTree.cleartree();
 	avlTree.cleartree();
+	std::cin.get();
 	return 0;
 }
